@@ -3,6 +3,8 @@ A simple benchmark for CPU and GPU performance in Bayesian imaging tasks using J
 
 The CPU script does simple multithreading using Polyester.jl for the computation of likelihoods. When running the CPU script, you need to manually set the number of execution threads. This can be done either by setting the `JULIA_NUM_THREADS` environment variable, or by starting Julia using the `julia -t <num_threads>' option from a terminal. 
 
+The GPU script uses CUDA.jl to load data into GPU memory using CuArrays, and exploits Julia's multiple dispatch to execute computations on these arrays using the appropriate CUDA kernels. Further performance gains may be obtained by writing and executing our own CUDA kernels.
+
 Included in this repository are two .dat files containing the results of running this benchmark on a Google Cloud virtual machine with the following Julia compute environment:
 ```
 Julia Version 1.8.1
@@ -46,7 +48,7 @@ Following is a summary of the obtained results:
  148.994 μs  1.308 ms    9.699 ms    #undef         #undef
  480.477 μs  4.246 ms    37.899 ms   #undef         #undef
  ```
- We can see how for small problem sizes (top left corner of the benchmark matrices), the overhead of loading data into the GPU and executing CUDA kernels dominates the actual computation time, and so the CPU-only code is faster. At larger problem sizes this overhead is relatively smaller compared to the cost of the computation itself, resulting in the GPU being up to 4 times faster than multi-threaded CPU code. 
+ We can see how for small problem sizes (top left corner of the benchmark matrices), the overhead of loading data into the GPU and executing CUDA kernels dominates the actual computation time, and so the CPU-only code is faster. At larger problem sizes this overhead is relatively smaller compared to the cost of the computation itself, resulting in the GPU being up to ~4 times faster than multi-threaded CPU code. 
  
  Each entry in the `benchmark_results` matrix contains the full results of a BenchmarkTools.Trial benchmark instead of just the minimum time in a batch, e.g.
  
