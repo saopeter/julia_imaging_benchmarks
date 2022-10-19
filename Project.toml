@@ -1,0 +1,13 @@
+[deps]
+BenchmarkHistograms = "a80a1652-aad8-438d-b80b-ecb1a674e33b"
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+Comrade = "99d987ce-9a1e-4df8-bc0b-1ea019aa547b"
+Enzyme = "7da242da-08ed-463a-9acd-ee780be4f1d9"
+Folds = "41a02a25-b8f0-4f67-bc48-60067656b558"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+NFFT = "efe261a4-0d2b-5849-be55-fc731d526b0d"
+Optimization = "7f7a1694-90dd-40f0-9382-eb1efda571ba"
+OptimizationOptimJL = "36348300-93cb-4f02-beb5-3c3902f8871e"
+ReverseDiff = "37e2e3b7-166d-5795-8a7a-e32c996b4267"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
