@@ -26,7 +26,7 @@ Results are collated into the `benchmark_results` matrix, where the vertical axi
 Following is a summary of the obtained results:
 
 ```
-8×5 Matrix{BenchmarkTools.Trial}:
+8×5 Matrix{BenchmarkTools.Trial}: #CPU results (minimum execution time of all runs in batch)
  21.401 μs   23.864 μs   61.868 μs      274.392 μs     2.589 ms
  20.873 μs   69.445 μs   62.448 μs      312.264 μs     4.527 ms
  52.063 μs   54.412 μs   108.182 μs     769.015 μs     12.901 ms
@@ -36,7 +36,7 @@ Following is a summary of the obtained results:
  647.353 μs  3.939 ms    28.779 ms      177.178 ms  #undef
  3.116 ms    18.082 ms   70.839 ms   #undef         #undef
 
-8×5 Matrix{BenchmarkTools.Trial}:
+8×5 Matrix{BenchmarkTools.Trial}: #GPU results (minimum execution time of all runs in batch)
  58.332 μs   58.847 μs   80.366 μs      100.430 μs     605.335 μs
  58.693 μs   60.983 μs   76.750 μs      170.462 μs     1.558 ms
  58.799 μs   59.980 μs   92.797 μs      445.869 μs     4.252 ms
@@ -46,8 +46,9 @@ Following is a summary of the obtained results:
  148.994 μs  1.308 ms    9.699 ms    #undef         #undef
  480.477 μs  4.246 ms    37.899 ms   #undef         #undef
  ```
+ We can see how for small problem sizes (top left corner of the benchmark matrices), the overhead of loading data into the GPU and executing CUDA kernels dominates the actual computation time, and so the CPU-only code is faster. At larger problem sizes this overhead is relatively smaller compared to the cost of the computation itself, resulting in the GPU being up to 4 times faster than multi-threaded CPU code. 
  
- Each entry in this matrix contains the full results of a BenchmarkTools.Trial benchmark, e.g.
+ Each entry in the `benchmark_results` matrix contains the full results of a BenchmarkTools.Trial benchmark instead of just the minimum time in a batch, e.g.
  
  ```
  julia> cpu_benchmarks[1,1]
