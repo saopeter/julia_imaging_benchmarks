@@ -1,7 +1,7 @@
 # julia_imaging_benchmarks
 A simple benchmark for CPU and GPU performance in Bayesian imaging tasks using Julia and Comrade.jl
 
-The CPU script does simple multithreading using Polyester.jl for the computation of likelihoods. When running the CPU script, you need to manually set the number of execution threads. This can be done either by setting the `JULIA_NUM_THREADS` environment variable, or by starting Julia using the `julia -t <num_threads>' option from a terminal. 
+The CPU script does simple multithreading using Polyester.jl for the computation of likelihoods. When running the CPU script, you need to manually set the number of execution threads. This can be done either by setting the `JULIA_NUM_THREADS` environment variable, or by starting Julia using the `julia -t <num_threads>` option from a terminal. 
 
 The GPU script uses CUDA.jl to load data into GPU memory using CuArrays, and exploits Julia's multiple dispatch to execute computations on these arrays using the appropriate CUDA kernels. Further performance gains may be obtained by writing and executing our own CUDA kernels.
 
