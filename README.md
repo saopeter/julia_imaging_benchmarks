@@ -68,6 +68,8 @@ BenchmarkTools.Trial: 10000 samples with 1 evaluation.
  
  The included .dat files were generated using Serialization.jl. To load them into Julia variables, at a REPL you can type, e.g. `cpu_benchmarks = deserialize("benchmark_results_cpu.dat")`. Note that if you're running a future version of Julia that diverges significantly from the current 1.8.1, you might need to either specifically use 1.8.1 for the deserializer to work correctly, or re-generate the data yourself.
  
+ A presentation accompanying the code in this repository can be found here: https://docs.google.com/presentation/d/1YujbhSIVcic6qskPEIbAaC085XUMhY0ZX8w8EEBPlJc/edit?usp=sharing
+ 
  
  ### Acknowledgements
  Thanks to Paul Tiede for providing the original imaging script upon which this work was based.
